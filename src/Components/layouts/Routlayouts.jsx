@@ -6,6 +6,7 @@ import Fouter from './Fouter'
 const Routlayouts = () => {
   return (
     <div>
+      
       <Hader/>
       <Outlet/>
       <Fouter/>
