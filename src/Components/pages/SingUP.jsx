@@ -1,5 +1,7 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Button } from "@/components/ui/button"
+import toast, { Toaster } from 'react-hot-toast';
+import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 import {
   Card,
   CardAction,
@@ -15,9 +17,63 @@ import { Link } from 'react-router-dom'
 
 
 const SingUP = () => {
+
+  const [userinfo, setuserinfo] = useState({
+        name :"",
+        emil :"",
+        password :"",      
+  })
+  // inputname start
+  const handelinpunametbtn = (e)=>{
+    setuserinfo((prev) =>{
+       return{...prev, name: e.target.value};
+    })
+  }
+  // inputname end
+
+  // inputEmail start
+  const handelEmailInputbtn = (e)=>{
+    setuserinfo((prev) =>{
+       return{...prev, email: e.target.value};
+    })
+  }
+  // inputEmail end
+
+  // inputPass start
+  const handelpassinputbtn = (e)=>{
+    setuserinfo((prev) =>{
+       return{...prev, password: e.target.value};
+    })
+  }
+  // inputPass end
+
+  // singupbtn start
+  const handelsingupbtn = (e)=>{
+    e.preventDefault()
+    if (!userinfo.name || !userinfo.email || !userinfo.password) {
+      toast.error("Crediantial Is Massing")
+    }
+    else{
+      const auth = getAuth();
+createUserWithEmailAndPassword(auth, userinfo.email, userinfo.password)
+  .then((userCredential) => {
+    toast.success("Data Sent")
+    const user = userCredential.user;
+   
+  })
+  .catch((error) => {
+    const errorCode = error.code;
+    const errorMessage = error.message;
+    toast.error(errorMessage)
+  });
+    }
+  }
+  // singupbtn end
+  
+
   return (
     <>
-   
+    <Toaster />
    <div className={`w-full pt-5`}>
          <Card className="w-[500px] mx-auto">
          <CardHeader>
@@ -32,15 +88,15 @@ const SingUP = () => {
            </CardAction>
          </CardHeader>
          <CardContent>
-           <form>
+           <form onSubmit={handelsingupbtn}>
              <div className="flex flex-col gap-6">
                <div className="grid gap-2">
-                 <Label htmlFor="email">Your name</Label>
+                 <Label htmlFor="text">Your name</Label>
                  <Input
-                   id="email"
-                   type="email"
+                  
+                   type="text"
                    placeholder="type your name"
-                   required
+                   onChange={handelinpunametbtn}
                  />
                </div>
                <div className="grid gap-2">
@@ -49,7 +105,7 @@ const SingUP = () => {
                    id="email"
                    type="email"
                    placeholder="type your email"
-                   required
+                   onChange={handelEmailInputbtn}
                  />
                </div>
                <div className="grid gap-2">
@@ -62,17 +118,18 @@ const SingUP = () => {
                      Forgot your password?
                    </a>
                  </div>
-                 <Input id="password" type="password" required />
+                 <Input id="password" type="password" onChange={handelpassinputbtn} />
                </div>
              </div>
-           </form>
-         </CardContent>
-         <CardFooter className="flex-col gap-2">
+             <CardFooter className="flex-col gap-2 pt-5">
            <Button type="submit" className="w-full">
              Sing UP
            </Button>
         
          </CardFooter>
+           </form>
+         </CardContent>
+         
        </Card>
        </div>
     </>

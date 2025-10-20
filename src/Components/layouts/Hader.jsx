@@ -6,16 +6,19 @@ import logo from '/src/assets/chatapp logo.png'
 const Hader = () => {
   return (
     <div>
-     <div className="bg-blue-500 ">
-      <div className="max-w-[1170px] m-auto">
+     <div className="m-auto bg-blue-500 py-3 ">
+      <div className="max-w-[1170px] ">
         
           
        
         
           <ul className={`flex justify-center gap-x-32 text-[16px] capitalize text-white `}>
-            <Image className={`w-[30px]`} src={logo}/>
+           <div className="flex items-center gap-x-2">
+             <Image className={`w-[30px]`} src={logo}/>
+             <p>chatting app</p>
+           </div>
             <Link to={"/"}>
-            <li>home</li>
+            <li >home</li>
             </Link>
             <Link to={"/loging"}>
             <li>Loging</li>
