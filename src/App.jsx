@@ -2,11 +2,11 @@
 import './App.css'
   
 import { Routes , Route } from 'react-router-dom';
-import Routlayouts from './Components/layouts/Routlayouts';
-import Home from './Components/pages/Home';
-import Loging from './Components/pages/Loging';
-import SingUP from './Components/pages/SingUP';
-import Dasebord from './Components/pages/Dasebord';
+import Routlayouts from './components/layouts/Routlayouts';
+import Home from './components/pages/Home';
+import Loging from './components/pages/Loging';
+import SingUP from './components/pages/SingUP';
+import Dasebord from './components/pages/Dasebord';
 
 
 function App() {
