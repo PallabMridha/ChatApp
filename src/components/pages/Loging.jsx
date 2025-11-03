@@ -18,7 +18,9 @@ import { Label } from "@/components/ui/label";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { userloginginfo } from "/src/slices/userslice";
+import { userloginginfo } from "@/slices/userSlice";
+
+
 
 const Loging = () => {
 
