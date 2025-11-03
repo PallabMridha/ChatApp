@@ -44,14 +44,14 @@ const Dasebord = () => {
         <div className=" flex w-full mt-5 mr-5">
           {/* ====================== one start */}
           <div className="ml-5 w-full ">
-            <div class="flex items-center justify-between  bg-white border border-gray-200 rounded-full shadow-sm  transition-all duration-200 hover:shadow-md mb-5">
-              <div class="flex items-center space-x-2 w-full">
+            <div className="flex items-center justify-between  bg-white border border-gray-200 rounded-full shadow-sm  transition-all duration-200 hover:shadow-md mb-5">
+              <div className="flex items-center space-x-2 w-full">
 
                 <CiSearch className={`ml-3`} />
                 <input
                   type="text"
                   placeholder="Search"
-                  class="outline-none focus:outline-none focus:ring-0 border-none text-sm text-gray-700 placeholder-gray-400 w-full bg-transparent"
+                  className="outline-none focus:outline-none focus:ring-0 border-none text-sm text-gray-700 placeholder-gray-400 w-full bg-transparent"
                 />
               </div>
 
