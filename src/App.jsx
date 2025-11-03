@@ -21,11 +21,12 @@ function App() {
          <Route path='/' element={<Home/>} />
          <Route path='/loging' element={<Loging/>} />
          <Route path='/singup' element={<SingUP/>} />
-         <Route path='/dasebord' element={<Dasebord/>} />
+         
          
          
          
        </Route>
+       <Route path='/dasebord' element={<Dasebord/>} />
    
         </Routes>
     </>

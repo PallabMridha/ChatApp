@@ -119,3 +119,8 @@
     @apply bg-background text-foreground;
   }
 }
+
+/* ==================== */
+@theme {
+  --font-Poppins: "Poppins", sans-serif; 
+}

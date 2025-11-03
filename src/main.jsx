@@ -4,11 +4,15 @@ import './index.css'
 import App from './App.jsx'
 import { BrowserRouter } from 'react-router-dom';
 import firebase from "/src/firebaseconfig"
+import store from './store'
+import { Provider } from 'react-redux'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-     <BrowserRouter>
+    <Provider store={store}>
+       <BrowserRouter>
         <App />
       </BrowserRouter>
+    </Provider>
   </StrictMode>,
 )
